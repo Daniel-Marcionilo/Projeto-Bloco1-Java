@@ -13,7 +13,7 @@ public class Camaleao extends Animais{
 
 	
 	public void subirNaArvore() {
-		System.out.println("Escalando a arvore lentamente...");
+		System.out.println("\nEscalando a arvore lentamente...");
 	}
 	
 	public void imprimirCamaleao() {

@@ -67,18 +67,18 @@ public class Vendas {
 		System.out.println("| 2 - Brinquedos          R$5,00  |");
 		System.out.println("|_________________________________|");
 
-		System.out.println("Deseja incluir Comida? ");
+		System.out.print("Deseja incluir Comida? ");
 		if (leitor.next().equals("sim")) {
-			System.out.println("Digite a quantidade de Comida: ");
+			System.out.print("Digite a quantidade de Comida: ");
 			setQtdeComida(leitor.nextInt());
 			if (getQtdeComida() > 0) {
 				carrinho = carrinho * getQtdeComida();
 			}
 		}
 
-		System.out.println("Deseja incluir Brinquedos? ");
+		System.out.print("\nDeseja incluir Brinquedos? ");
 		if (leitor.next().equals("sim") || leitor.next().equals("SIM") || leitor.next().equals("Sim")) {
-			System.out.println("Digite a quantidade de Brinquedos: ");
+			System.out.print("Digite a quantidade de Brinquedos: ");
 			setQtdeBrinquedos(leitor.nextInt());
 			if (getQtdeBrinquedos() > 0) {
 				carrinho = carrinho * getQtdeBrinquedos();

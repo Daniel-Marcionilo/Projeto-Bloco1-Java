@@ -21,7 +21,7 @@ public class Tartaruga extends Animais{
 	}
 	
 	public void nadar() {
-		System.out.println("Continue a nadar...");
+		System.out.println("\nContinue a nadar...");
 	}
 	
 	public void imprimirTartaruga() {

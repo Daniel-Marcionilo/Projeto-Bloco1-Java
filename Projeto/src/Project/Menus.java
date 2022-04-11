@@ -3,6 +3,13 @@ package Project;
 import java.util.Scanner;
 
 public class Menus {
+	
+	public static void limparTela() {
+		for (int cont = 0; cont < 50; cont++) {
+			System.out.println("");
+		}
+	}
+	
 	Camaleao tart = new Camaleao();
 
 	int opcaoMenuPrincipal, opcao;
@@ -29,7 +36,6 @@ public class Menus {
 			opcaoMenuPrincipal = leia.nextInt();
 
 			if (opcaoMenuPrincipal == 1) {
-				
 				System.out.println(" ___________________________________");
 				System.out.println("| Quais informações deseja inserir? |");
 				System.out.println("|                                   |");
@@ -43,20 +49,29 @@ public class Menus {
 				opcao = leia.nextInt();
 				if (opcao == 1) {
 					tart.odono();
-					System.out.println("\nInformações cadastradas com sucesso!");
+					System.out.println("\n" + ConsoleColors.GREEN_BOLD + "Informações cadastradas com sucesso!" + ConsoleColors.RESET);
 				} else if (opcao == 2) {
 					tart.oanimal();
-					System.out.println("\nInformações cadastradas com sucesso!");
+					System.out.println("\n" + ConsoleColors.GREEN_BOLD + "Informações cadastradas com sucesso!" + ConsoleColors.RESET);
 
 				} else if (opcao == 3) {
 					tart.odono();
-					System.out.println("\nInformações cadastradas com sucesso!");
 					tart.oanimal();
-					System.out.println("\nInformações cadastradas com sucesso!");
+					System.out.println("\n" + ConsoleColors.GREEN_BOLD + "Informações cadastradas com sucesso!" + ConsoleColors.RESET);
 
 				}
 			} else if (opcaoMenuPrincipal == 2) {
-				System.out.println("1- Dono \n" + "2-Animal \n" + "3-Ambos \n" + "4-Procedimento animal \n" + "5-Cancelar");
+				
+				System.out.println(" ______________________________________");
+				System.out.println("| Quais informações deseja visualizar? |");
+				System.out.println("|                                      |");
+				System.out.println("| 1 - Dono                             |");
+				System.out.println("| 2 - Animal                           |");
+				System.out.println("| 3 - Ambos                            |");
+				System.out.println("| 4 - Procedimento animal              |");
+				System.out.println("| 5 - Cancelar                         |");
+				System.out.println("|______________________________________|");
+				
 				System.out.print("\nDigite uma das opções acima: ");
 				opcao = leia.nextInt();
 				
@@ -79,6 +94,6 @@ public class Menus {
 				tart.caixa();
 			}
 		} while (opcaoMenuPrincipal != 5);
-		System.out.println("Programa encerrado.");
+		System.out.println("\nPrograma encerrado.");
 	}
 }

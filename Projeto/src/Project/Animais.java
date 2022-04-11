@@ -1,22 +1,23 @@
 package Project;
 
 import java.util.*;
+import java.util.logging.ConsoleHandler;
 
 public abstract class Animais implements InterfacePetShop {
 
 	public static void limparTela() {
-		for (int cont = 0; cont < 15; cont++) {
+		for (int cont = 0; cont < 10; cont++) {
 			System.out.println("");
 		}
 	}
 
 	Scanner leia = new Scanner(System.in);
-	private String nome, especie, tipo, cuidado, dono, cuidado2, banho2, comer2;
+	private String nome = "", especie, tipo, cuidado, dono, cuidado2, banho2, comer2;
 	private String dormir, telefone, cep;
 	private byte idade;
 	private float peso;
 	private long ibama;
-	
+
 	public static Papagaio ZecaUrubu = new Papagaio();
 	public static Camaleao Rambo = new Camaleao();
 	public static Tartaruga Squirtle = new Tartaruga();
@@ -137,79 +138,80 @@ public abstract class Animais implements InterfacePetShop {
 	// INTERFACE
 	@Override
 	public void odono() {
+		System.out.println("\n" + ConsoleColors.LIGHT_PURPLE + "DONO" + ConsoleColors.RESET);
 		System.out.print("\nInsira o nome do dono: ");
-		this.setDono(leia.nextLine());
-		System.out.println("");
-		System.out.print("Insira o telefone do dono: ");
-		this.setTelefone(leia.nextLine());
+		this.setDono(leia.next());
 
-		System.out.print("Insira o cep do dono: ");
-		this.setCep(leia.nextLine());
+		System.out.print("\nInsira o telefone do dono: ");
+		this.setTelefone(leia.next());
+
+		System.out.print("\nInsira o cep do dono: ");
+		this.setCep(leia.next());
 	}
-	
+
 	@Override
 	public void oanimal() {		
-		System.out.print("\nMatricula do Ibama: ");
+		System.out.println("\n" + ConsoleColors.ORANGE+"ANIMAL"+ ConsoleColors.RESET);
+		System.out.print("\nDigite a Matricula do Ibama: ");
 		this.setIbama(leia.nextLong());
 
-		System.out.print("Insira o nome do animal: ");
+		System.out.print("\nInsira o nome do animal: ");
 		this.setNome(leia.next());
 		
-		System.out.print("Insira a idade do animal: ");
+		System.out.print("\nInsira a idade do animal: ");
 		this.setIdade(leia.nextByte());
 
-		System.out.print("Insira o peso do animal: ");
+		System.out.print("\nInsira o peso do animal: ");
 		this.setPeso(leia.nextFloat());
 
-		System.out.print("Qual a espécie do animal? ");
+		System.out.print("\nQual a espécie do animal? ");
 		this.setEspecie(leia.next());
-		
-		System.out.print("Qual o tipo do animal? ");
+
+		System.out.print("\nQual o tipo do animal? ");
 		this.setTipo(leia.next());
-		
+
 		String tipo = getTipo();
-		
-		if(tipo.equals("Tartaruga")) {	
-			System.out.print("Digite a espessura da Tartaruga: ");
+
+		if (tipo.equals("Tartaruga")) {
+			System.out.print("\nDigite a espessura da Tartaruga: ");
 			Squirtle.setEspessura(leia.nextDouble());
-		}	
+		}
 		if (tipo.equals("Camaleao") || tipo.equals("Camaleão")) {
-			
-			System.out.print("Digite o tamanho da língua: ");
+
+			System.out.print("\nDigite o tamanho da língua: ");
 			Rambo.setTamLingua(leia.nextDouble());
 		}
-		
-		if (tipo.equals("Papagaio")) {			
-			System.out.print("Digite a cor das asas: ");
+
+		if (tipo.equals("Papagaio")) {
+			System.out.print("\nDigite a cor das asas: ");
 			ZecaUrubu.setCorDasAsas(leia.next());
 		}
 
-		System.out.print("O animal tem cuidados especiais? ");
+		System.out.print("\nO animal tem cuidados especiais? ");
 		this.setCuidado(leia.next());
 
 	}
 
 	@Override
 	public void oprocedimento() {
-		System.out.println("O animal já tomou banho? ");
+		System.out.print("\nO animal já tomou banho? ");
 		this.setBanho2(leia.next());
 
-		System.out.println("O animal já comeu? ");
+		System.out.print("\nO animal já comeu? ");
 		this.setComer2(leia.next());
 
-		System.out.println("O animal dormiu? ");
+		System.out.print("\nO animal dormiu? ");
 		this.setDormir(leia.next());
 
-		System.out.println("O animal tem cuidados especiais? ");
+		System.out.print("\nO animal tem cuidados especiais? ");
 		this.setCuidado(leia.next());
 
 		if (cuidado.equals("sim") || cuidado.equals("Sim") || cuidado.equals("SIM")) {
-			System.out.println("Os cuidados foram aplicados? ");
+			System.out.print("\nOs cuidados foram aplicados? ");
 			this.setCuidado2(leia.next());
 		} else {
 			System.out.println("O animal não tem cuidados especiais.");
 		}
-
 	}
 	
 	@Override
@@ -219,39 +221,38 @@ public abstract class Animais implements InterfacePetShop {
 	}
 
 	public void statusdono() {
-		System.out.println("Dono: " + this.getDono());
+		System.out.println("\nDono: " + this.getDono());
 		System.out.println("Telefone: " + this.getTelefone());
-		System.out.println("cep: " + this.getCep());
-		System.out.println();
+		System.out.println("CEP: " + this.getCep());
 	}
 
 	public void statusanimal() {
-		System.out.println("Matricula do Ibama: " + this.getIbama());
+		System.out.println("\nMatricula do Ibama: " + this.getIbama());
 		System.out.println("Nome do animal: " + this.getNome());
 		System.out.println("Idade do animal: " + this.getIdade() + " anos");
 		System.out.println("Peso do animal: " + this.getPeso());
 		System.out.println("Espécie: " + this.getEspecie());
 		System.out.println("Tipo: " + this.getTipo());
-		
+
 		String testando = this.getTipo();
-		
-		if(testando.equals("Tartaruga")) {	
+
+		if (testando.equals("Tartaruga")) {
 			System.out.println("Espessura: " + Squirtle.getEspessura());
 			Squirtle.imprimirTartaruga();
 			Squirtle.nadar();
 			limparTela();
-		}	
+		}
 		if (testando.equals("Camaleao") || testando.equals("Camaleão")) {
 			System.out.println("Tamanho da Língua: " + Rambo.getTamLingua());
 			Rambo.imprimirCamaleao();
-			Rambo.subirNaArvore();			
+			Rambo.subirNaArvore();
 			limparTela();
 		}
-		
+
 		if (testando.equals("Papagaio")) {
 			String cor;
 			cor = ZecaUrubu.getCorDasAsas();
-			System.out.println("Cor das Asas: " + cor); 
+			System.out.println("Cor das Asas: " + cor);
 			ZecaUrubu.imprimirPapagaio();
 			ZecaUrubu.falar();
 			limparTela();
@@ -260,10 +261,10 @@ public abstract class Animais implements InterfacePetShop {
 	}
 
 	public void statusprocedimento() {
-		System.out.println("O animal comeu? " + this.getComer2());
-		System.out.println("O animal tomou banho? " + this.getBanho2());
-		System.out.println("O animal dormiu? " + this.getDormir());
-		System.out.println("O animal possui cuidados especiais? " + this.getCuidado());
+		System.out.println("\nO animal comeu? " + this.getComer2());
+		System.out.println("\nO animal tomou banho? " + this.getBanho2());
+		System.out.println("\nO animal dormiu? " + this.getDormir());
+		System.out.println("\nO animal possui cuidados especiais? " + this.getCuidado());
 
 	}
 }

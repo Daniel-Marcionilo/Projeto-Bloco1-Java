@@ -30,7 +30,7 @@ public class Papagaio extends Animais{
 	}
 	
 	public void falar() {
-		System.out.println("Papagaio falou: Palmeiras não tem mundial!");
+		System.out.println("\nPapagaio falou: Palmeiras não tem mundial!");
 	}
 
 	public void imprimirPapagaio() {
