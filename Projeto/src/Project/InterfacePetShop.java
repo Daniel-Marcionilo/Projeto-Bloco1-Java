@@ -8,5 +8,7 @@ public interface InterfacePetShop {
 	void oprocedimento();
 	
 	void caixa();
+	
+	void permitirAnimais();
 
 }

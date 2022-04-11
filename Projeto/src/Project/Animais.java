@@ -10,7 +10,9 @@ public abstract class Animais implements InterfacePetShop {
 			System.out.println("");
 		}
 	}
-
+	
+	public boolean erro = false;
+	
 	Scanner leia = new Scanner(System.in);
 	private String nome = "", especie, tipo, cuidado, dono, cuidado2, banho2, comer2;
 	private String dormir, telefone, cep;
@@ -150,46 +152,49 @@ public abstract class Animais implements InterfacePetShop {
 	}
 
 	@Override
-	public void oanimal() {		
+	public void oanimal() {
 		System.out.println("\n" + ConsoleColors.ORANGE+"ANIMAL"+ ConsoleColors.RESET);
 		System.out.print("\nDigite a Matricula do Ibama: ");
-		this.setIbama(leia.nextLong());
-
-		System.out.print("\nInsira o nome do animal: ");
-		this.setNome(leia.next());
-		
-		System.out.print("\nInsira a idade do animal: ");
-		this.setIdade(leia.nextByte());
-
-		System.out.print("\nInsira o peso do animal: ");
-		this.setPeso(leia.nextFloat());
-
-		System.out.print("\nQual a espécie do animal? ");
-		this.setEspecie(leia.next());
-
-		System.out.print("\nQual o tipo do animal? ");
-		this.setTipo(leia.next());
-
-		String tipo = getTipo();
-
-		if (tipo.equals("Tartaruga")) {
-			System.out.print("\nDigite a espessura da Tartaruga: ");
-			Squirtle.setEspessura(leia.nextDouble());
+		try {
+			this.setIbama(leia.nextLong());
+	
+			System.out.print("\nInsira o nome do animal: ");
+			this.setNome(leia.next());
+			
+			System.out.print("\nInsira a idade do animal: ");
+			this.setIdade(leia.nextByte());	
+			
+			System.out.print("\nInsira o peso do animal: ");
+			this.setPeso(leia.nextFloat());
+	
+			System.out.print("\nQual a espécie do animal? ");
+			this.setEspecie(leia.next());
+	
+			System.out.print("\nQual o tipo do animal? ");
+			this.setTipo(leia.next());
+	
+			String tipo = getTipo();
+	
+			if (tipo.equals("Tartaruga")) {
+				System.out.print("\nDigite a espessura da Tartaruga: ");
+				Squirtle.setEspessura(leia.nextDouble());
+			}
+			if (tipo.equals("Camaleao") || tipo.equals("Camaleão")) {
+	
+				System.out.print("\nDigite o tamanho da língua: ");
+				Rambo.setTamLingua(leia.nextDouble());
+			}
+	
+			if (tipo.equals("Papagaio")) {
+				System.out.print("\nDigite a cor das asas: ");
+				ZecaUrubu.setCorDasAsas(leia.next());
+			}
+			System.out.print("\nO animal tem cuidados especiais? ");
+			this.setCuidado(leia.next());
+		}catch(InputMismatchException e) {
+			System.out.println("\n\n"+ConsoleColors.RED_BOLD+ "Valor inválido!"+ConsoleColors.RESET);
+			erro = true;
 		}
-		if (tipo.equals("Camaleao") || tipo.equals("Camaleão")) {
-
-			System.out.print("\nDigite o tamanho da língua: ");
-			Rambo.setTamLingua(leia.nextDouble());
-		}
-
-		if (tipo.equals("Papagaio")) {
-			System.out.print("\nDigite a cor das asas: ");
-			ZecaUrubu.setCorDasAsas(leia.next());
-		}
-
-		System.out.print("\nO animal tem cuidados especiais? ");
-		this.setCuidado(leia.next());
-
 	}
 
 	@Override
@@ -266,5 +271,17 @@ public abstract class Animais implements InterfacePetShop {
 		System.out.println("\nO animal dormiu? " + this.getDormir());
 		System.out.println("\nO animal possui cuidados especiais? " + this.getCuidado());
 
+	}
+	
+	public void verificarAnimais() {
+		ArrayList<String> animaisPermitidos = new ArrayList<>();
+		
+		animaisPermitidos.add("Tartaruga");
+		animaisPermitidos.add("Camaleão");
+		animaisPermitidos.add("Papagaio");
+		
+		System.out.println("\nANIMAIS PERMITIDOS");
+		System.out.println(animaisPermitidos);
+	
 	}
 }

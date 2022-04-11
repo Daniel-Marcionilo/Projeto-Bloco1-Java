@@ -24,6 +24,12 @@ public class Tartaruga extends Animais{
 		System.out.println("\nContinue a nadar...");
 	}
 	
+	@Override
+	public void permitirAnimais() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public void imprimirTartaruga() {
 		System.out.println("\n");
 		System.out.println(ConsoleColors.CYAN_BOLD + "                            ___-------___\r\n"

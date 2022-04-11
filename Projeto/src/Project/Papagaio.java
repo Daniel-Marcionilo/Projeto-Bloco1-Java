@@ -32,6 +32,12 @@ public class Papagaio extends Animais{
 	public void falar() {
 		System.out.println("\nPapagaio falou: Palmeiras não tem mundial!");
 	}
+	
+	@Override
+	public void permitirAnimais() {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public void imprimirPapagaio() {
 		System.out.println("\n");

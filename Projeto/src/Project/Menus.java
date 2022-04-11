@@ -29,7 +29,7 @@ public class Menus {
 			System.out.println("| 2 - Visualizar Informações |");
 			System.out.println("| 3 - Checklist do animal    |");
 			System.out.println("| 4 - Montar pedido          |");
-			System.out.println("| 5 - Encerrar Programa      |");
+			System.out.println("| 0 - Encerrar Programa      |");
 			System.out.println("|____________________________|");
 			
 			System.out.print("\nDigite uma das opções acima: ");
@@ -42,18 +42,26 @@ public class Menus {
 				System.out.println("| 1 - Dono                          |");
 				System.out.println("| 2 - Animal                        |");
 				System.out.println("| 3 - Ambos                         |");
-				System.out.println("| 4 - Cancelar                      |");
+				System.out.println("| 0 - Cancelar                      |");
 				System.out.println("|___________________________________|");
 				
 				System.out.print("\nDigite uma das opções acima: ");
 				opcao = leia.nextInt();
 				if (opcao == 1) {
 					tart.odono();
-					System.out.println("\n" + ConsoleColors.GREEN_BOLD + "Informações cadastradas com sucesso!" + ConsoleColors.RESET);
+					if(tart.erro == true) {
+						System.out.println("");
+					}
+					else {
+						System.out.println("\n" + ConsoleColors.GREEN_BOLD + "Informações cadastradas com sucesso!" + ConsoleColors.RESET);
+					}
 				} else if (opcao == 2) {
 					tart.oanimal();
-					System.out.println("\n" + ConsoleColors.GREEN_BOLD + "Informações cadastradas com sucesso!" + ConsoleColors.RESET);
-
+					if(tart.erro == true) {
+						System.out.println("");
+					}else {
+						System.out.println("\n" + ConsoleColors.GREEN_BOLD + "Informações cadastradas com sucesso!" + ConsoleColors.RESET);
+					}
 				} else if (opcao == 3) {
 					tart.odono();
 					tart.oanimal();
@@ -69,7 +77,8 @@ public class Menus {
 				System.out.println("| 2 - Animal                           |");
 				System.out.println("| 3 - Ambos                            |");
 				System.out.println("| 4 - Procedimento animal              |");
-				System.out.println("| 5 - Cancelar                         |");
+				System.out.println("| 5 - Verificar animais permitidos     |");
+				System.out.println("| 0 - Cancelar                         |");
 				System.out.println("|______________________________________|");
 				
 				System.out.print("\nDigite uma das opções acima: ");
@@ -86,6 +95,9 @@ public class Menus {
 				} else if (opcao == 4) {
 					tart.statusprocedimento();
 				}
+				else if (opcao == 5) {
+					tart.verificarAnimais();
+				}
 				System.out.println();
 			} else if (opcaoMenuPrincipal == 3) {
 				tart.oprocedimento();
@@ -93,7 +105,7 @@ public class Menus {
 			} else if(opcaoMenuPrincipal == 4){
 				tart.caixa();
 			}
-		} while (opcaoMenuPrincipal != 5);
+		} while (opcaoMenuPrincipal != 0);
 		System.out.println("\nPrograma encerrado.");
 	}
 }

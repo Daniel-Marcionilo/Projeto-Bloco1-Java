@@ -13,7 +13,7 @@ public class Camaleao extends Animais{
 
 	
 	public void subirNaArvore() {
-		System.out.println("\nEscalando a arvore lentamente...");
+		System.out.println("\nEscalando a árvore lentamente...");
 	}
 	
 	public void imprimirCamaleao() {
@@ -34,5 +34,11 @@ public class Camaleao extends Animais{
 				+ "/_.~`-----~      \\.  \\ ~~~~~~~~~~~~~---~`---\\\\\\\\ \\---__ \\:\\    /  /\r\n"
 				+ "                  `\\\\\\`                     ' \\\\' '    --\\'\\, /  /\r\n"
 				+ "                                               '\\,        ~-_'''\"" + ConsoleColors.RESET);
+	}
+
+	@Override
+	public void permitirAnimais() {
+		// TODO Auto-generated method stub
+		
 	}
 }
